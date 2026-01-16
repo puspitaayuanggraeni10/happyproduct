@@ -3,11 +3,11 @@
 **Project:** Happy Puppy Product Management System  
 **Version:** 1.0  
 **Last Updated:** January 16, 2026  
-**Status:** Production Ready ✅
+**Status:** Production Ready 
 
 ---
 
-## 📋 DAFTAR ISIasdasd asdsad
+## DAFTAR ISIasdasd asdsad
 
 1. [Ringkasan Project](#ringkasan-project)
 2. [Requirement](#requirement)
