@@ -10,7 +10,7 @@ class User_model extends CI_Model {
   public function find($filter=[]){
     $this->db->where($filter);    
     $query = $this->db->get($this->table);
-    return $query->result();
+    return $query->row();
   }
 
   public function check_login($username, $password)

@@ -23,9 +23,8 @@ class Products extends MY_Controller {
 
   public function index()
   {
-    $data['title'] = 'Products - '.password_hash('admin', PASSWORD_BCRYPT);;
+    $data['title'] = 'Data Products';
     $data['categories'] = $this->category->all();
-    // echo password_hash('admin', PASSWORD_BCRYPT);
 
     load_view($this, 'products/index',$data);
   }

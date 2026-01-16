@@ -10,36 +10,37 @@ class Auth extends CI_Controller {
   }
 
   public function login()
-  {
-    var_dump($this->session->userdata());
-
+{
     if ($this->session->userdata('user_logged_in')) {
-      redirect('products');
+        redirect('products');
     }
 
     if ($this->input->post()) {
-      $username = $this->input->post('username', true);
-      $password = $this->input->post('password', true);
 
-      $admin = $this->user->check_login($username, $password);
+        $username = $this->input->post('username', true);
+        $password = $this->input->post('password', true);
 
-      if ($admin) {
-        $this->session->set_userdata([
-          'user_logged_in' => true,
-          'user_id' => $admin->id,
-          'user_username' => $admin->username
-        ]);
+        $admin = $this->user->find(['username' => $username]);
 
-        toast('info', 'Selamat datang, Semangat bekerja !');
-        redirect('products');
-      } else {
-        toast('error', 'Username / Password salah!');
-        redirect('auth/login');
-      }
+        if ($admin && password_verify($password, $admin->password)) {
+
+            $this->session->set_userdata([
+                'user_logged_in' => true,
+                'user_id'       => $admin->id,
+                'user_username' => $admin->username
+            ]);
+
+            toast('info', 'Selamat datang, semangat bekerja!');
+            redirect('products');
+
+        } else {
+            toast('error', 'Username / Password salah!');
+            redirect('auth/login');
+        }
     }
 
     $this->load->view('auth/login');
-  }
+}
 
   public function logout()
   {
