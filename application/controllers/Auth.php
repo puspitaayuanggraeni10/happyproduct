@@ -44,11 +44,13 @@ class Auth extends CI_Controller {
 
   public function logout()
   {
-     $this->session->unset_userdata([
+    $this->session->unset_userdata([
         'user_logged_in',
         'user_id',
         'user_username'
     ]);
+
+    $this->session->sess_destroy();
     toast('info', 'Logout !');
     redirect('auth/login');
   }

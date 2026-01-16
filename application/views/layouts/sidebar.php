@@ -25,7 +25,7 @@
         <li class="nav-item">
           <a href="<?= base_url('products'); ?>" class="nav-link">
             <i class="nav-icon fas fa-box"></i>
-            <p>Products</p>
+            <p>Uniqlo Products</p>
           </a>
         </li>
       </ul>

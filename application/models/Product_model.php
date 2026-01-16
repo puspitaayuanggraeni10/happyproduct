@@ -68,11 +68,17 @@ class Product_model extends CI_Model {
   public function format_datatables_row($product)
   {
     return [
-      "IDB".$product->id,
+      $product->id,
       html_escape($product->name),
       '<span class="badge badge-info">'.html_escape($product->category_name).'</span>',
-      number_format($product->price),
-      $product->stock,
+      '<input type="text" class="form-control form-control-sm edit-inline"
+        data-field="price"
+        data-id="'.$product->id.'"
+        value="'.$product->price.'">',
+      '<input type="text" class="form-control form-control-sm edit-inline"
+        data-field="stock"
+        data-id="'.$product->id.'"
+        value="'.$product->stock.'">',
       $this->get_action_buttons($product->id)
     ];
   }

@@ -102,9 +102,10 @@
 
   </div>
 </div>
-<script src="<?= base_url('assets/adminlte/plugins/jquery/jquery.min.js'); ?>"></script>
 
 <script>
+  var table;
+
 $(function(){
 
   table = $('#tblProducts').DataTable({
@@ -122,9 +123,9 @@ $(function(){
         d.category_id = $('#filterKategori').val();
       }
     },
-
+    order: [[0,'desc']],
     columnDefs: [
-      { targets: [0,5], orderable: false }
+      { targets: [5], orderable: false }
     ],
 
     initComplete: function () {
@@ -157,7 +158,7 @@ $(function(){
   });
 
 
-});
+
 // submit modal form (create/update)
   $('#formProduct').on('submit', function(e){
     e.preventDefault();
@@ -188,6 +189,7 @@ $(function(){
     });
   });
 
+});
 
 // OPEN CREATE MODAL
 function openCreateModal(){
@@ -252,4 +254,28 @@ function deleteProduct(id){
     }
   });
 }
+
+$(document).on('change', '.edit-inline', function(){
+  const id = $(this).data('id');
+  const stock = $(this).val();
+  const field = $(this).data('field');
+  $.ajax({
+    url: "<?= base_url('products/ajax_update_field'); ?>",
+    type: "POST",
+    dataType: "json",
+    data: {
+      id: id,
+      field: field,
+      value: stock
+    },
+    success: function(res){
+      if(res.status){
+        showToast('success', field+' berhasil diupdate');
+      } else {
+        showToast('error', res.message || 'Gagal update stok');
+      }
+    }
+  });
+});
+
 </script>
