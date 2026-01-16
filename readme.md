@@ -100,10 +100,10 @@ Ubah konfigurasi database di `application/config/database.php` menjadi:
 <?php
 $db['default'] = array(
   'dsn'   => '',
-  'hostname' => 'localhost',
-  'username' => 'root',
-  'password' => '', // sesuaikan password MySQL Anda
-  'database' => 'db_puppy',
+  'hostname' => 'localhost', // sesuaikan 
+  'username' => 'root', // sesuaikan 
+  'password' => '', // sesuaikan 
+  'database' => 'db_puppy', // sesuaikan 
   'dbdriver' => 'mysqli',
   'dbprefix' => '',
   'pconnect' => FALSE,
