@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2026 at 09:30 AM
+-- Generation Time: Jan 16, 2026 at 09:20 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -22,38 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_happy` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `db_happy`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admins`
---
-
-CREATE TABLE `admins` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`id`, `username`, `password`) VALUES
-(1, 'admin', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -98,12 +66,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category_id`, `price`, `stock`, `created_at`, `updated_at`) VALUES
-(7, 'Flannel Checked Shirt (Long Sleeve)', 1, 30000, 20, '2026-01-15 10:37:17', '2026-01-15 18:23:02'),
+(7, 'Flannel Checked Shirt (Long Sleeve)', 1, 30000, 99, '2026-01-15 10:37:17', '2026-01-16 16:27:39'),
 (8, 'Rayon Blouse (Long Sleeve)', 1, 299000, 16, '2026-01-15 10:37:17', NULL),
 (9, 'Ribbed Crew Neck T-Shirt', 1, 149000, 32, '2026-01-15 10:37:17', NULL),
 (10, 'AIRism Bra Camisole', 4, 6000, 60, '2026-01-15 10:37:17', '2026-01-15 13:28:11'),
 (12, 'Ultra Light Down Vest', 2, 499000, 10, '2026-01-15 10:37:17', NULL),
-(13, 'Hybrid Down Coat', 2, 1499000, 6, '2026-01-15 10:37:17', NULL),
+(13, 'Hybrid Down Coat', 2, 34234, 6, '2026-01-15 10:37:17', '2026-01-16 18:33:13'),
 (14, 'Blocktech Parka', 2, 999000, 9, '2026-01-15 10:37:17', NULL),
 (15, 'Single Breasted Coat', 2, 1299000, 5, '2026-01-15 10:37:17', NULL),
 (16, 'Fleece Full-Zip Jacket', 2, 399000, 15, '2026-01-15 10:37:17', NULL),
@@ -117,7 +85,7 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `price`, `stock`, `created_
 (24, 'Wide Fit Pleated Pants', 3, 499000, 11, '2026-01-15 10:37:17', NULL),
 (25, 'Pleated Wide Pants', 3, 499000, 9, '2026-01-15 10:37:17', NULL),
 (26, 'Straight Jeans', 3, 499000, 15, '2026-01-15 10:37:17', NULL),
-(27, 'Relaxed Ankle Pants', 3, 399000, 12, '2026-01-15 10:37:17', NULL),
+(27, 'Relaxed Ankle Pants', 3, 399000, 70, '2026-01-15 10:37:17', '2026-01-16 18:11:36'),
 (28, 'Jogger Pants', 3, 299000, 20, '2026-01-15 10:37:17', NULL),
 (29, 'Cargo Pants', 3, 499000, 10, '2026-01-15 10:37:17', NULL),
 (30, 'Denim Shorts', 3, 299000, 14, '2026-01-15 10:37:17', NULL),
@@ -140,8 +108,7 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `price`, `stock`, `created_
 (47, 'Sunglasses (Boston)', 5, 199000, 12, '2026-01-15 10:37:17', NULL),
 (48, 'Socks (3 Pairs)', 5, 99000, 80, '2026-01-15 10:37:17', NULL),
 (49, 'HEATTECH Gloves', 5, 149000, 24, '2026-01-15 10:37:17', NULL),
-(50, 'Cashmere Scarf', 5, 399000, 10, '2026-01-15 10:37:17', NULL),
-(51, 'puspita ayu anggraeni', 1, 80000, 80, '2026-01-15 13:28:30', NULL);
+(50, 'Cashmere Scarf', 5, 8000, 80, '2026-01-15 10:37:17', '2026-01-16 20:18:27');
 
 -- --------------------------------------------------------
 
@@ -212,37 +179,21 @@ INSERT INTO `song` (`Id`, `Song`, `Genre`, `Singer`, `Spotify`) VALUES
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `jabatan` varchar(20) NOT NULL,
-  `no_telp` varchar(20) NOT NULL,
-  `status` tinyint(4) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `jabatan`, `no_telp`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin', '1928798', 1);
+INSERT INTO `user` (`id_user`, `username`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$iyNC26D76GMJ.7qgiLfuGubai/2Q5rx9yQn382fYQXUlwwZ.HiHRm', '2026-01-16 08:59:14', NULL);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `categories`
@@ -271,20 +222,14 @@ ALTER TABLE `song`
   ADD KEY `Singer` (`Singer`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -296,7 +241,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
