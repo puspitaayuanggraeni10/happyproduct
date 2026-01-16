@@ -1,4 +1,4 @@
-# 📚 DOKUMENTASI LENGKAP - MANAJEMEN PRODUK
+# DOKUMENTASI LENGKAP - MANAJEMEN PRODUK
 
 **Project:** Happy Puppy Product Management System  
 **Version:** 1.0  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 DAFTAR ISI
+## 📋 DAFTAR ISIasdasd asdsad
 
 1. [Ringkasan Project](#ringkasan-project)
 2. [Requirement](#requirement)
